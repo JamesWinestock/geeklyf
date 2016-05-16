@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-light bg-faded">
 
   <ul class="nav navbar-nav">
@@ -6,8 +8,16 @@
     </li>
     <% if user_signed_in? %>
     <li class="nav-item"><a class="nav-link">
-      <%= link_to 'Sign out', destroy_user_session_path %></a>
+      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></a>
+      <li class="nav-item"><a class="nav-link">
+        <%= link_to 'Products', products_path %></a>
+      </li>
+
+      <li class="nav-item"><a class="nav-link">
+      <%= link_to 'About', pages_about_path %>
+      </li>
     </li>
+    <% else %>
     <li class="nav-item"><a class="nav-link">
       <%= link_to 'Sign in', new_user_session_path %></a>
     </li>
@@ -19,6 +29,9 @@
       <%= link_to 'Products', products_path %></a>
     </li>
 
+    <li class="nav-item"><a class="nav-link">
+    <%= link_to 'About', pages_about_path %>
+    </li>
 
   </ul>
   <% end %>
